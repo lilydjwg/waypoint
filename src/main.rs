@@ -234,6 +234,12 @@ fn handle_key_pressed(state: &mut App, key: u32, seat_id: SeatId, qhandle: &Queu
                     state.region = region;
                 }
             }
+            Cmd::Reset => {
+                if let Some(oldest) = state.region_history.first().cloned() {
+                  state.region_history.push(state.region);
+                  state.region = oldest;
+                }
+            }
             Cmd::Cut(dir) => update(
                 &mut state.region,
                 &mut state.region_history,
