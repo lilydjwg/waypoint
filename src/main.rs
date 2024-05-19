@@ -259,7 +259,6 @@ fn handle_key_pressed(state: &mut App, key: u32, seat_id: SeatId, qhandle: &Queu
             Cmd::Click(btn) => {
                 should_press = Some(btn.code());
                 should_release = Some(btn.code());
-                state.loop_signal.stop();
             }
             Cmd::Press(btn) => {
                 should_press = Some(btn.code());
