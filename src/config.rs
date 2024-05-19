@@ -30,6 +30,7 @@ pub(crate) enum Cmd {
     Cut(Direction),
     Move(Direction),
     Scroll(Axis, f64),
+    Reset,
 }
 
 bitflags! {
@@ -90,6 +91,7 @@ impl Cmd {
             "scroll-down" => Some(Cmd::Scroll(Axis::VerticalScroll, 10.0)),
             "scroll-left" => Some(Cmd::Scroll(Axis::HorizontalScroll, -10.0)),
             "scroll-right" => Some(Cmd::Scroll(Axis::HorizontalScroll, 10.0)),
+            "reset" => Some(Cmd::Reset),
             _ => None,
         }
     }
