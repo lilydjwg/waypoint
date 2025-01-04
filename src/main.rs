@@ -810,6 +810,9 @@ impl Dispatch<ZwlrLayerSurfaceV1, OutputId> for App {
                 width,
                 height,
             } => {
+                if width == 0 || height == 0 {
+                    return;
+                }
                 let surface = output.surface.as_mut().unwrap();
                 proxy.ack_configure(serial);
                 proxy.set_size(width, height);
